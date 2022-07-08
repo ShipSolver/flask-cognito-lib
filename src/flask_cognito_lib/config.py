@@ -48,6 +48,7 @@ class Config:
     CONTEXT_KEY_COGNITO_SERVICE = "aws_cognito_service"
     CONTEXT_KEY_TOKEN_SERVICE = "aws_jwt_service"
     COOKIE_NAME = "cognito_access_token"
+    AUTHORIZATION_HEADER_NAME = "Authorization"
 
     @property
     def disabled(self) -> bool:

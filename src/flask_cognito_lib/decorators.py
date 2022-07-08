@@ -153,9 +153,9 @@ def auth_required(groups: Optional[Iterable[str]] = None):
             if cfg.disabled:
                 return fn(*args, **kwargs)
 
-            # Try and validate the access token stored in the cookie
+            # Try and validate the access token in header
             try:
-                access_token = request.cookies.get(cfg.COOKIE_NAME)
+                access_token = request.headers.get(cfg.AUTHORIZATION_HEADER_NAME)
                 claims = cognito_auth.verify_access_token(
                     token=access_token,
                     leeway=cfg.cognito_expiration_leeway,
