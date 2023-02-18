@@ -160,6 +160,7 @@ def auth_required(groups: Optional[Iterable[str]] = None):
                     token=access_token,
                     leeway=cfg.cognito_expiration_leeway,
                 )
+                session.update({"claims": claims})
                 valid = True
 
                 # Check for required group membership
